@@ -10,9 +10,21 @@
           "codigo": "APPM101",
           "seccion": "017V",
           "alumnos": [
-            { "id": 1, "nombre": "Carlos Pérez", "status": "inactive" },
-            { "id": 2, "nombre": "Lucía Gómez", "status": "inactive" },
-            { "id": 3, "nombre": "Miguel Torres", "status": "inactive" }
+            {
+              "id": 1,
+              "nombre": "Carlos Pérez",
+              "status": "activo"
+            },
+            {
+              "id": 2,
+              "nombre": "Lucía Gómez",
+              "status": "activo"
+            },
+            {
+              "id": 3,
+              "nombre": "Miguel Torres",
+              "status": "inactive"
+            }
           ]
         }
       ]
@@ -27,9 +39,21 @@
           "codigo": "ARQ102",
           "seccion": "008V",
           "alumnos": [
-            { "id": 4, "nombre": "Ana López", "status": "inactive" },
-            { "id": 5, "nombre": "Pedro Morales", "status": "inactive" },
-            { "id": 6, "nombre": "Laura Rodríguez", "status": "inactive"}
+            {
+              "id": 4,
+              "nombre": "Ana López",
+              "status": "inactive"
+            },
+            {
+              "id": 5,
+              "nombre": "Pedro Morales",
+              "status": "inactive"
+            },
+            {
+              "id": 6,
+              "nombre": "Laura Rodríguez",
+              "status": "inactive"
+            }
           ]
         }
       ]
@@ -44,9 +68,21 @@
           "codigo": "APPE103",
           "seccion": "035V",
           "alumnos": [
-            { "id": 7, "nombre": "Javier Sánchez", "status": "inactive"},
-            { "id": 8, "nombre": "Sofía Hernández", "status": "inactive"},
-            { "id": 9, "nombre": "Luis Fernández", "status": "inactive" }
+            {
+              "id": 7,
+              "nombre": "Javier Sánchez",
+              "status": "inactive"
+            },
+            {
+              "id": 8,
+              "nombre": "Sofía Hernández",
+              "status": "inactive"
+            },
+            {
+              "id": 9,
+              "nombre": "Luis Fernández",
+              "status": "inactive"
+            }
           ]
         },
         {
@@ -55,9 +91,21 @@
           "codigo": "ING487",
           "seccion": "007V",
           "alumnos": [
-            { "id": 4, "nombre": "Ana López", "status": "inactive"},
-            { "id": 8, "nombre": "Sofía Hernández", "status": "inactive"},
-            { "id": 7, "nombre": "Javier Sánchez", "status": "inactive" }
+            {
+              "id": 4,
+              "nombre": "Ana López",
+              "status": "inactive"
+            },
+            {
+              "id": 8,
+              "nombre": "Sofía Hernández",
+              "status": "inactive"
+            },
+            {
+              "id": 7,
+              "nombre": "Javier Sánchez",
+              "status": "inactive"
+            }
           ]
         },
         {
@@ -66,9 +114,21 @@
           "codigo": "PRGW102",
           "seccion": "022V",
           "alumnos": [
-            { "id": 11, "nombre": "Elena Jiménez", "status": "inactive"},
-            { "id": 3, "nombre": "Miguel Torres", "status": "inactive"},
-            { "id": 10, "nombre": "Diego Vargas", "status": "inactive" }
+            {
+              "id": 11,
+              "nombre": "Elena Jiménez",
+              "status": "inactive"
+            },
+            {
+              "id": 3,
+              "nombre": "Miguel Torres",
+              "status": "inactive"
+            },
+            {
+              "id": 10,
+              "nombre": "Diego Vargas",
+              "status": "inactive"
+            }
           ]
         }
       ]
@@ -83,9 +143,21 @@
           "codigo": "ESTD104",
           "seccion": "005V",
           "alumnos": [
-            { "id": 10, "nombre": "Diego Vargas", "status": "inactive"},
-            { "id": 11, "nombre": "Elena Jiménez", "status": "inactive" },
-            { "id": 12, "nombre": "Ricardo Castillo", "status": "inactive" }
+            {
+              "id": 10,
+              "nombre": "Diego Vargas",
+              "status": "inactive"
+            },
+            {
+              "id": 11,
+              "nombre": "Elena Jiménez",
+              "status": "inactive"
+            },
+            {
+              "id": 12,
+              "nombre": "Ricardo Castillo",
+              "status": "inactive"
+            }
           ]
         },
         {
@@ -94,9 +166,21 @@
           "codigo": "MAT104",
           "seccion": "018V",
           "alumnos": [
-            { "id": 1, "nombre": "Carlos Pérez", "status": "inactive" },
-            { "id": 4, "nombre": "Ana López", "status": "inactive" },
-            { "id": 12, "nombre": "Ricardo Castillo", "status": "inactive" }
+            {
+              "id": 1,
+              "nombre": "Carlos Pérez",
+              "status": "inactive"
+            },
+            {
+              "id": 4,
+              "nombre": "Ana López",
+              "status": "inactive"
+            },
+            {
+              "id": 12,
+              "nombre": "Ricardo Castillo",
+              "status": "inactive"
+            }
           ]
         },
         {
@@ -105,9 +189,21 @@
           "codigo": "PRGW102",
           "seccion": "020V",
           "alumnos": [
-            { "id": 5, "nombre": "Pedro Morales", "status": "inactive" },
-            { "id": 8, "nombre": "Sofía Hernández", "status": "inactive" },
-            { "id": 10, "nombre": "Diego Vargas", "status": "inactive" }
+            {
+              "id": 5,
+              "nombre": "Pedro Morales",
+              "status": "inactive"
+            },
+            {
+              "id": 8,
+              "nombre": "Sofía Hernández",
+              "status": "inactive"
+            },
+            {
+              "id": 10,
+              "nombre": "Diego Vargas",
+              "status": "inactive"
+            }
           ]
         }
       ]

@@ -11,7 +11,7 @@
         <ion-icon name="exit-outline"></ion-icon>Cerrar sesión
       </ion-button>
     </div>
-  </ion-content>     
+  </ion-content>
 </ion-menu>
 
 
@@ -34,17 +34,17 @@
   <div class="container">
     <div class="centered-container">
       <img src="https://upload.wikimedia.org/wikipedia/commons/a/aa/Logo_DuocUC.svg" alt="Login Image" class="login-image">
-      
+
       <ion-card class="custom-card">
         <ion-card-title class="custom-card-title">Registra tu Asistencia aquí</ion-card-title>
-        <ion-card-header class="custom-card-header">Recuerda activar tu ubicación</ion-card-header>
-          <ion-button class="custom-button" (click)="presentAlert()">Activar</ion-button> 
+        <ion-card-header class="custom-card-header">Recuerda activar tu cámara 📷</ion-card-header>
+          <button class="custom-button" (click)="presentAlert()">Activar</button>
       </ion-card>
-      
+
       <ion-card class="custom-card">
         <ion-card-title class="custom-card-title">Ubicación en el Mapa</ion-card-title>
         <ion-card-content>
-          <img src="assets/maps.png" alt="Maps" class="maps-image"> 
+          <div id="map"></div>
         </ion-card-content>
       </ion-card>
     </div>

@@ -12,19 +12,19 @@ export class ConsumoApiService {
 
   constructor(private http: HttpClient) {}
 
-  public login(correo: string, password: string): Observable<{ token: string, role: string, nombre: string, id_profesor: number }> { 
+  public login(correo: string, password: string): Observable<{ token: string, role: string, nombre: string, id_profesor: number }> {
     const body = { correo, password };
     return this.http.post<{ token: string, role: string, nombre: string, id_profesor: number }>(`${this.apiUrl}/login`, body)
       .pipe(
         map(response => {
-          
+
           return {
             token: response.token,
             role: response.role ,
             nombre: response.nombre,
             id_profesor: response.id_profesor
           };
-          
+
         })
       );
   }
@@ -36,4 +36,11 @@ export class ConsumoApiService {
   public ObtenerAlumnos(profesorId:number, cursoId: number): Observable<any>{
     return this.http.get(`${this.apiUrl}/profesores/${profesorId}/cursos/${cursoId}/alumnos`);
   }
+
+  // Método para actualizar el estado del alumno
+  public actualizarEstadoAlumno(cursoId: number, nuevoStatus: string, alumnoNombre: string) {
+    const payload = { id_curso: cursoId, estado: nuevoStatus, nombre: alumnoNombre };
+    return this.http.put<{ message: string }>(`${this.apiUrl}/actualizar`, payload);
+  }
+
 }

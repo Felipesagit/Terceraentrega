@@ -14,8 +14,8 @@ export class QrdocentePage implements OnInit {
   nombre: string = '';
   codigo: string = '';
   seccion: string = '';
-  id_profesor: string = '';
-  id_curso: string = '';
+  id_profesor=0;
+  id_curso=0;
 
   alumnos: any[] = [];
   qrCodeUrl: string = '';  // Variable para almacenar la URL del QR
@@ -32,15 +32,15 @@ export class QrdocentePage implements OnInit {
       this.nombre = navigation.extras.state['nombre'];
       this.codigo = navigation.extras.state['codigo'];
       this.seccion = navigation.extras.state['seccion'];
-      this.id_profesor = String(navigation.extras.state['id_profesor']);
-      this.id_curso = String(navigation.extras.state['id_curso']);
+      this.id_profesor = parseInt(navigation.extras.state['id_profesor']);
+      this.id_curso = parseInt(navigation.extras.state['id_curso']);
       this.mostrarAlumno();
       this.generarQR();  // Generar el QR al iniciar
     }
   }
 
   public mostrarAlumno() {
-    this.consumoapi.ObtenerAlumnos(parseInt(this.id_profesor), parseInt(this.id_curso)).subscribe((res: any) => {
+    this.consumoapi.ObtenerAlumnos((this.id_profesor), (this.id_curso)).subscribe((res: any) => {
       this.alumnos = res;
     });
   }

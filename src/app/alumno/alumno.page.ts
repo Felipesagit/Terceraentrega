@@ -1,25 +1,89 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
-import { ConsumoApiService } from '../service/consumoapi.service';
+import * as L from 'leaflet'; // Importar Leaflet aquí
 
 @Component({
   selector: 'app-alumno',
   templateUrl: './alumno.page.html',
   styleUrls: ['./alumno.page.scss'],
 })
-export class AlumnoPage implements OnInit {
-  now: Date = new Date(); 
-  nombre: string = ''; 
-  fecha: string = this.now.toLocaleString(); 
+export class AlumnoPage implements OnInit, AfterViewInit {
 
-  constructor(private router: Router, private alertController: AlertController, consumoapi: ConsumoApiService) {}
+  now: Date = new Date();
+  nombre: string = '';
+  fecha: string = this.now.toLocaleString();
+
+  constructor(
+    private router: Router,
+    private alertController: AlertController,
+  ) { }
 
   ngOnInit() {
-    const navigation = this.router.getCurrentNavigation();
-    if (navigation?.extras.state) {
-      this.nombre = navigation.extras.state['nombre'];
+    // Inicialización de variables si es necesario
+    this.nombre = localStorage.getItem('nombre')!;
+  }
+
+  ngAfterViewInit() {
+    this.mostrarMapaConUbicacion();
+  }
+
+  mostrarMapaConUbicacion() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const lat = position.coords.latitude;
+          const lng = position.coords.longitude;
+
+          // Inicializar el mapa
+          const map = L.map('map').setView([lat, lng], 13); // Ajusta la vista del mapa a la ubicación obtenida
+
+          // Cargar los tiles (fondo del mapa)
+          L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+          }).addTo(map);
+
+          // Colocar un marcador en la ubicación
+          const marker = L.marker([lat, lng]).addTo(map)
+            .bindPopup('Tu ubicación actual')
+            .openPopup();
+        },
+        (error) => {
+          if (error.code === error.PERMISSION_DENIED) {
+            this.mostrarAlertActivarUbicacion();
+          } else {
+            alert('No se pudo obtener la ubicación. Error: ' + error.message);
+          }
+        }
+      );
+    } else {
+      alert('Geolocalización no soportada.');
     }
+  }
+
+  async mostrarAlertActivarUbicacion() {
+    const alert = await this.alertController.create({
+      header: 'Activar ubicación',
+      message: 'Parece que no tienes activada la geolocalización. ¿Quieres activarla?',
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+          handler: () => {
+            console.log('El usuario canceló la activación de ubicación');
+          },
+        },
+        {
+          text: 'Activar',
+          handler: () => {
+            console.log('El usuario desea activar la ubicación');
+            this.router.navigate(['/configuracion-ubicacion']); // Redirige a una página de configuración, si tienes una
+          },
+        },
+      ],
+    });
+
+    await alert.present();
   }
 
   salirAplicacion() {
@@ -51,5 +115,4 @@ export class AlumnoPage implements OnInit {
 
     await alert.present();
   }
-
 }

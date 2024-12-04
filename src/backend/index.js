@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const fs = require('fs');
-const path =require('path');
+const path = require('path');
 const jwt = require('jsonwebtoken');
 
 
@@ -11,6 +11,9 @@ const PORT = 3000; // Cambia el puerto si es necesario
 const secretKey = 'una_secret_key';
 app.use(cors());
 app.use(express.json());
+
+
+const jsonFilePath = path.join(__dirname, 'data', 'asistenciaDuoc.json');
 
 
 
@@ -24,6 +27,56 @@ function generateToken(user) {
   };
   return jwt.sign(payload, secretKey, { expiresIn: '1h' });
 }
+
+// Función para actualizar el estado del alumno
+const actualizarEstadoAlumno = (id_curso, estado, nombre) => {
+  console.log("ID Curso recibido:", id_curso);
+  console.log("Estado recibido:", estado);
+  console.log("Usuario recibido:", nombre);
+
+  if (!id_curso || !estado || !nombre) {
+    return { message: 'Datos incompletos' };
+  }
+
+  let profesoresData;
+  try {
+    // Leer y parsear el archivo JSON
+    profesoresData = JSON.parse(fs.readFileSync(jsonFilePath, 'utf8'));
+  } catch (error) {
+    console.error('Error al leer el archivo JSON:', error);
+    return { message: 'Error al leer el archivo de datos' };
+  }
+
+  // Buscar el curso en todos los profesores
+  for (const profesor of profesoresData.profesores) {
+    const curso = profesor.cursos.find(c => c.nombre === parseInt(nombre));
+
+    if (curso) {
+      // Buscar el alumno dentro del curso
+      const alumno = curso.alumnos.find(a => a.nombre === parseInt(nombre));
+
+      if (alumno) {
+        // Actualizar el estado del alumno
+        alumno.status = estado;
+
+        try {
+          // Escribir los cambios en el archivo JSON
+          fs.writeFileSync(jsonFilePath, JSON.stringify(profesoresData, null, 2), 'utf8');
+          console.log(`Estado actualizado para el alumno ${alumno.nombre} a ${estado}`);
+          return { code: 200, message: 'Estado actualizado con éxito' };
+        } catch (writeError) {
+          console.error('Error al escribir en el archivo JSON:', writeError);
+          return { code: 400, message: 'Error al actualizar el archivo de datos' };
+        }
+      } else {
+        return { code: 400, message: 'Alumno no encontrado' };
+      }
+    }
+  }
+
+  return { code: 500, message: 'Curso no encontrado' };
+};
+
 
 // Ruta para manejar el login
 app.post('/login', (req, res) => {
@@ -44,13 +97,12 @@ app.post('/login', (req, res) => {
 
     if (user) {
       const token = generateToken(user);//se genera un token y devuelve el rol y el nombre del usuario.
-      res.json({ token, role: user.role, nombre: user.nombre, id_profesor: user.id  });
+      res.json({ token, role: user.role, nombre: user.nombre, id_profesor: user.id });
     } else {
       res.status(401).json({ message: 'Credenciales inválidas' });
     }
   });
 });
-
 
 
 // Obtener cursos de un profesor
@@ -89,11 +141,11 @@ app.get('/profesores/:profesorId/cursos/:cursoId/alumnos', (req, res) => {
 
     const profesor = profesores.find(p => p.id === profesorId);
     if (!profesor) {
-      return res.status(404).json({ message: 'Profesor no encontrado' });
+      return res.status(404).json({ code:404, message: 'Profesor no encontrado' });
     }
     const curso = profesor.cursos.find(c => c.id === cursoId);
     if (!curso) {
-      return res.status(404).json({ message: 'Curso no encontrado' });
+      return res.status(404).json({ code:404, message: 'Curso no encontrado' });
     }
 
     return res.json(curso.alumnos);
@@ -110,44 +162,27 @@ app.get('/profesores', (req, res) => {
   const filePath = path.join(__dirname, 'data', 'asistenciaDuoc.json');
 
   fs.readFile(filePath, 'utf8', (err, data) => {
-     if (err) {
-        return res.status(500).json({ error: 'Error leyendo el archivo JSON' });
-     }
-     const users = JSON.parse(data).profesores;
-     res.json(users);
+    if (err) {
+      return res.status(500).json({ error: 'Error leyendo el archivo JSON' });
+    }
+    const users = JSON.parse(data).profesores;
+    res.json(users);
   });
 });
 
 
-
 // Ruta para actualizar el estado del alumno
-app.put('/actualizar-status', (req, res) => {
-  const { alumnoId, cursoId, nuevoStatus } = req.body;
+app.put('/actualizar', (req, res) => {
+  console.log("Body enviadpo al backend:: ", req.body);
+  const { id_curso, estado, nombre } = req.body;
 
-  // Encontrar el profesor y el curso
-  let cursoEncontrado = null;
-  let alumnoEncontrado = null;
+  const resultado = actualizarEstadoAlumno(id_curso, estado, nombre);
+  console.log(resultado);
 
-  // Buscar en el JSON el curso y el alumno
-  for (let profesor of data.profesores) {
-    for (let curso of profesor.cursos) {
-      if (curso.id === cursoId) {
-        cursoEncontrado = curso;
-        alumnoEncontrado = curso.alumnos.find(alumno => alumno.id === alumnoId);
-        if (alumnoEncontrado) {
-          break;
-        }
-      }
-    }
-    if (alumnoEncontrado) break;
-  }
-
-  // Si se encontró el alumno, actualizar su estado
-  if (alumnoEncontrado) {
-    alumnoEncontrado.status = nuevoStatus;
+  if (resultado.code == 200) {
     return res.status(200).json({ message: 'Estado actualizado con éxito' });
   } else {
-    return res.status(404).json({ message: 'Alumno o curso no encontrado' });
+    return res.status(404).json({ message: resultado.message });
   }
 });
 
