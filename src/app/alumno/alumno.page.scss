@@ -1,0 +1,100 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif; /* Define una fuente base */
+  overflow-x: hidden; /* Evita el desbordamiento horizontal */
+}
+
+.container {
+  background: linear-gradient(to bottom, #215c84, #c2e1f7); /* Degradado de arriba hacia abajo */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Cambiar a flex-start para permitir que el contenido fluya hacia abajo */
+  width: 100%;
+  height: auto; /* Cambiar a auto para permitir que el contenido expanda el contenedor */
+  padding: 20px; /* Espaciado alrededor del contenido */
+  box-sizing: border-box; /* Asegura que el padding se incluya en el tamaño total */
+}
+
+.centered-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; /* Apila los elementos en columna */
+  text-align: center;
+  width: 100%; /* Asegúrate de que ocupe el 100% del ancho */
+}
+
+
+
+.custom-card {
+  margin: 15px auto; /* Margen superior e inferior */
+  padding: 20px; /* Espaciado interno más amplio */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra más sutil */
+  border-radius: 12px; /* Bordes redondeados */
+  display: flex; /* Usar flexbox para centrar contenido */
+  flex-direction: column; /* Colocar elementos en columna */
+  align-items: center; /* Centrar horizontalmente */
+  text-align: center; /* Centrar texto */
+  background-color: #fff; /* Fondo blanco para la tarjeta */
+  width: 90%;
+  max-width: 400px;
+}
+
+.custom-card-title {
+  color: #111111;
+  font-weight: bold;
+  margin-bottom: 10px; /* Espacio debajo del título */
+}
+
+
+.custom-button {
+  margin-top: 10px;
+  background: #005ea3; /* Color de fondo del botón */
+  color: #fff; /* Color del texto */
+  border-radius: 10px; /* Bordes redondeados */
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.maps-image {
+  width: 100%; 
+  max-width: 400px; 
+  border-radius: 10px; 
+  margin-top: 20px; 
+}
+
+
+ion-menu {
+  --background: #005ea3; 
+}
+
+ion-toolbar {
+  background-color: #fff; 
+}
+
+ion-title {
+  color: #fff; 
+}
+
+.button-bar {
+  display: flex;
+  justify-content: center; 
+  margin: 20px 0; 
+}
+.custom-button :hover{
+  background: #013a63; 
+
+}
+.header-title {
+  display: flex;
+  flex-direction: column; 
+  align-items: flex-start; 
+  width: 100%; 
+}
+
+.fecha-label {
+  font-size: 12px; 
+  color: gray; 
+  margin-top: 4px; 
+}

@@ -1,0 +1,246 @@
+{
+  "profesores": [
+    {
+      "id": 1,
+      "nombre": "María Díaz",
+      "cursos": [
+        {
+          "id": 101,
+          "nombre": "App Móvil",
+          "codigo": "APPM101",
+          "seccion": "017V",
+          "alumnos": [
+            { "id": 1, "nombre": "Carlos Pérez", "status": "inactive" },
+            { "id": 2, "nombre": "Lucía Gómez", "status": "inactive" },
+            { "id": 3, "nombre": "Miguel Torres", "status": "inactive" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "nombre": "José García",
+      "cursos": [
+        {
+          "id": 102,
+          "nombre": "Arquitectura",
+          "codigo": "ARQ102",
+          "seccion": "008V",
+          "alumnos": [
+            { "id": 4, "nombre": "Ana López", "status": "inactive" },
+            { "id": 5, "nombre": "Pedro Morales", "status": "inactive" },
+            { "id": 6, "nombre": "Laura Rodríguez", "status": "inactive"}
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "nombre": "Isabel Romero",
+      "cursos": [
+        {
+          "id": 103,
+          "nombre": "App Escritorio",
+          "codigo": "APPE103",
+          "seccion": "035V",
+          "alumnos": [
+            { "id": 7, "nombre": "Javier Sánchez", "status": "inactive"},
+            { "id": 8, "nombre": "Sofía Hernández", "status": "inactive"},
+            { "id": 9, "nombre": "Luis Fernández", "status": "inactive" }
+          ]
+        },
+        {
+          "id": 107,
+          "nombre": "Inglés",
+          "codigo": "ING487",
+          "seccion": "007V",
+          "alumnos": [
+            { "id": 4, "nombre": "Ana López", "status": "inactive"},
+            { "id": 8, "nombre": "Sofía Hernández", "status": "inactive"},
+            { "id": 7, "nombre": "Javier Sánchez", "status": "inactive" }
+          ]
+        },
+        {
+          "id": 108,
+          "nombre": "Programación Web",
+          "codigo": "PRGW102",
+          "seccion": "022V",
+          "alumnos": [
+            { "id": 11, "nombre": "Elena Jiménez", "status": "inactive"},
+            { "id": 3, "nombre": "Miguel Torres", "status": "inactive"},
+            { "id": 10, "nombre": "Diego Vargas", "status": "inactive" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "nombre": "Andrés Ruiz",
+      "cursos": [
+        {
+          "id": 104,
+          "nombre": "Estadística Descriptiva",
+          "codigo": "ESTD104",
+          "seccion": "005V",
+          "alumnos": [
+            { "id": 10, "nombre": "Diego Vargas", "status": "inactive"},
+            { "id": 11, "nombre": "Elena Jiménez", "status": "inactive" },
+            { "id": 12, "nombre": "Ricardo Castillo", "status": "inactive" }
+          ]
+        },
+        {
+          "id": 105,
+          "nombre": "Matemática Aplicada",
+          "codigo": "MAT104",
+          "seccion": "018V",
+          "alumnos": [
+            { "id": 1, "nombre": "Carlos Pérez", "status": "inactive" },
+            { "id": 4, "nombre": "Ana López", "status": "inactive" },
+            { "id": 12, "nombre": "Ricardo Castillo", "status": "inactive" }
+          ]
+        },
+        {
+          "id": 106,
+          "nombre": "Programación Web",
+          "codigo": "PRGW102",
+          "seccion": "020V",
+          "alumnos": [
+            { "id": 5, "nombre": "Pedro Morales", "status": "inactive" },
+            { "id": 8, "nombre": "Sofía Hernández", "status": "inactive" },
+            { "id": 10, "nombre": "Diego Vargas", "status": "inactive" }
+          ]
+        }
+      ]
+    }
+  ],
+  "usuarios": [
+    {
+      "id": 1,
+      "role": "docente",
+      "password": "Maria142",
+      "nombre": "María Díaz",
+      "correo": "maria.diaz@duocprofesor.cl",
+      "status": "active"
+    },
+    {
+      "id": 2,
+      "role": "docente",
+      "password": "Jose142",
+      "nombre": "José García",
+      "correo": "jose.garcia@duocprofesor.cl",
+      "status": "active"
+    },
+    {
+      "id": 3,
+      "role": "docente",
+      "password": "Isabel142",
+      "nombre": "Isabel Romero",
+      "correo": "isabel.romero@duocprofesor.cl",
+      "status": "active"
+    },
+    {
+      "id": 4,
+      "role": "docente",
+      "password": "Andres142",
+      "nombre": "Andrés Ruiz",
+      "correo": "andres.ruiz@duocprofesor.cl",
+      "status": "active"
+    },
+    {
+      "id": 5,
+      "role": "alumno",
+      "password": "Carlos547",
+      "nombre": "Carlos Pérez",
+      "correo": "carlos.perez@duocuc.cl",
+      "status": "inactive"
+    },
+    {
+      "id": 6,
+      "role": "alumno",
+      "password": "Lucia547",
+      "nombre": "Lucía Gómez",
+      "correo": "lucia.gomez@duocuc.cl",
+      "status": "inactive"
+    },
+    {
+      "id": 7,
+      "role": "alumno",
+      "password": "Miguel547",
+      "nombre": "Miguel Torres",
+      "correo": "miguel.torres@duocuc.cl",
+      "status": "inactive"
+    },
+    {
+      "id": 8,
+      "role": "alumno",
+      "password": "Ana547",
+      "nombre": "Ana López",
+      "correo": "ana.lopez@duocuc.cl",
+      "status": "inactive"
+    },
+    {
+      "id": 9,
+      "role": "alumno",
+      "password": "Pedro547",
+      "nombre": "Pedro Morales",
+      "correo": "pedro.morales@duocuc.cl",
+      "status": "inactive"
+    },
+    {
+      "id": 10,
+      "role": "alumno",
+      "password": "Laura547",
+      "nombre": "Laura Rodríguez",
+      "correo": "laura.rodriguez@duocuc.cl",
+      "status": "inactive"
+    },
+    {
+      "id": 11,
+      "role": "alumno",
+      "password": "Javier547",
+      "nombre": "Javier Sánchez",
+      "correo": "javier.sanchez@duocuc.cl",
+      "status": "inactive"
+    },
+    {
+      "id": 12,
+      "role": "alumno",
+      "password": "Sofia547",
+      "nombre": "Sofía Hernández",
+      "correo": "sofia.hernandez@duocuc.cl",
+      "status": "inactive"
+    },
+    {
+      "id": 13,
+      "role": "alumno",
+      "password": "Luis547",
+      "nombre": "Luis Fernández",
+      "correo": "luis.fernandez@duocuc.cl",
+      "status": "inactive"
+    },
+    {
+      "id": 14,
+      "role": "alumno",
+      "password": "Diego547",
+      "nombre": "Diego Vargas",
+      "correo": "diego.vargas@duocuc.cl",
+      "status": "inactive"
+    },
+    {
+      "id": 15,
+      "role": "alumno",
+      "password": "Elena547",
+      "nombre": "Elena Jiménez",
+      "correo": "elena.jimenez@duocuc.cl",
+      "status": "inactive"
+    },
+    {
+      "id": 16,
+      "role": "alumno",
+      "password": "Ricardo547",
+      "nombre": "Ricardo Castillo",
+      "correo": "ricardo.castillo@duocuc.cl",
+      "status": "inactive"
+    }
+  ]
+}

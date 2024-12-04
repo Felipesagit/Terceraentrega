@@ -1,0 +1,7 @@
+{
+  "name": "AsistenciaD",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

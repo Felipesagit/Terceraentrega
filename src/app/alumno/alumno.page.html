@@ -1,0 +1,52 @@
+<ion-menu contentId="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title><ion-icon name="menu-outline"></ion-icon>Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content class="ion-padding">
+    <div class="button-bar">
+      <ion-button (click)="salirAplicacion()">
+        <ion-icon name="exit-outline"></ion-icon>Cerrar sesión
+      </ion-button>
+    </div>
+  </ion-content>     
+</ion-menu>
+
+
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+
+    <div class="header-title">
+      <ion-title>
+        Bienvenido, {{nombre}}
+      </ion-title>
+      <ion-label class="fecha-label">{{ fecha }}</ion-label>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content id="main-content">
+  <div class="container">
+    <div class="centered-container">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/a/aa/Logo_DuocUC.svg" alt="Login Image" class="login-image">
+      
+      <ion-card class="custom-card">
+        <ion-card-title class="custom-card-title">Registra tu Asistencia aquí</ion-card-title>
+        <ion-card-header class="custom-card-header">Recuerda activar tu ubicación</ion-card-header>
+          <ion-button class="custom-button" (click)="presentAlert()">Activar</ion-button> 
+      </ion-card>
+      
+      <ion-card class="custom-card">
+        <ion-card-title class="custom-card-title">Ubicación en el Mapa</ion-card-title>
+        <ion-card-content>
+          <img src="assets/maps.png" alt="Maps" class="maps-image"> 
+        </ion-card-content>
+      </ion-card>
+    </div>
+  </div>
+</ion-content>

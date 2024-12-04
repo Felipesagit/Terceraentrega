@@ -1,0 +1,112 @@
+* {
+  font-family: sans-serif; 
+}
+
+.table {
+  margin-top: 20px;
+  width: 100%; 
+  display: flex;
+  justify-content: center;
+}
+
+.content-table {
+  border-collapse: collapse;
+  width: 100%; 
+  max-width: 350px;
+  margin: 0 auto; 
+  font-size: 0.9em;
+  border-radius: 5px 5px 0 0;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.content-table thead tr {
+  background-color: #215c84;
+  color: #ffffff;
+  text-align: left;
+  font-weight: bold;
+}
+
+.content-table th,
+.content-table td {
+  padding: 12px 15px;
+}
+
+.content-table tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+.content-table tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+.content-table tbody tr:last-of-type {
+  border-bottom: 2px solid #215c84;
+}
+
+.content-table tbody tr.active-row {
+  font-weight: bold;
+  color: #215c84;
+}
+
+ion-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  padding: 16px;
+}
+
+.qr-image {
+  max-width: 350px; 
+  width: 100%;
+  display: block;
+  margin: 0 auto;
+}
+
+.detalles-curso {
+  max-width: 350px; 
+  margin: 0 auto;
+  text-align: center;
+}
+
+.botones {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+ion-card {
+  width: 90%;
+  max-width: 400px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  overflow-x: hidden;
+}
+
+.container {
+  background: linear-gradient(to bottom, #215c84, #c2e1f7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: auto;
+}
+
+.centered-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  width: 100%;
+}

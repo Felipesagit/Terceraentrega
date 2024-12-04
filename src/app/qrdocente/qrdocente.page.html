@@ -1,0 +1,51 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>QR del Curso</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="container">
+    <div class="centered-container">
+
+      <ion-card>
+        <ion-card-content>
+          <h2>Detalles del Curso</h2>
+          <p><strong>Nombre:</strong> {{ nombre }}</p>
+          <p><strong>Código:</strong> {{ codigo }}</p>
+          <p><strong>Sección:</strong> {{ seccion }}</p>
+
+          <!-- Mostramos el QR generado dinámicamente -->
+          <div *ngIf="qrCodeUrl">
+            <img [src]="qrCodeUrl" alt="Código QR" class="qr-image">
+          </div>
+
+          <div class="table">
+            <table class="content-table">
+              <thead>
+                <tr>
+                  <th>N° de lista</th>
+                  <th>Nombre</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let alumno of alumnos">
+                  <td>{{alumno.id}}</td>
+                  <td>{{alumno.nombre}}</td>
+                  <td>{{alumno.status}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+        </ion-card-content>
+
+        <div class="botones">
+          <ion-button (click)="Volver()">Volver</ion-button>
+          <ion-button (click)="salirAplicacion()">Salir</ion-button>
+        </div>
+      </ion-card>
+    </div>
+  </div>
+</ion-content>

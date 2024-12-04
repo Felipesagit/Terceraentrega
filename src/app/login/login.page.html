@@ -1,0 +1,32 @@
+<ion-header [translucent]="true">
+
+</ion-header>
+
+<ion-content [fullscreen]="true" class="login-content">
+  <div class="container">
+    <ion-card class="login-card">
+      <ion-card-header>
+        <ion-card-title>
+          <div class="centered-container">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/a/aa/Logo_DuocUC.svg" alt="Login Image" class="login-image">
+          </div>
+          <h1>Inicio Sesion</h1>
+        </ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+        <form [formGroup]="usuario" (ngSubmit)="navegarExtras()">
+          
+            <ion-input label="User" labelPlacement="floating" placeholder="Usuario" formControlName="user"></ion-input>
+        <br>
+            <ion-input type="password" label="Pass" labelPlacement="floating" placeholder="Contraseña" formControlName="pass"></ion-input>
+          
+
+          <ion-button expand="block"  type="submit" fill="outline">
+            <ion-icon name="log-in-outline"></ion-icon> Entrar
+          </ion-button>
+        </form>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

@@ -1,0 +1,31 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Escanear QR</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="container">
+    <div class="centered-container">
+      <ion-card>
+        <ion-card-content>
+          <h2>Escanea el Código QR</h2>
+
+          <!-- Componente ZXing Scanner -->
+          <zxing-scanner
+            [formats]="[barcodeFormat.QR_CODE]"
+            (scanSuccess)="onScanSuccess($event)"
+            [device]="selectedDevice">
+          </zxing-scanner>
+
+          <p *ngIf="qrResultString">Resultado del QR: {{ qrResultString }}</p>
+        </ion-card-content>
+
+        <div class="botones">
+          <ion-button (click)="Volver()">Volver</ion-button>
+          <ion-button (click)="salirAplicacion()">Salir</ion-button>
+        </div>
+      </ion-card>
+    </div>
+  </div>
+</ion-content>
